@@ -6,7 +6,7 @@ N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
 */
 
 
-
+/*
 int Prompt(string message)
 {
   Console.Write(message);
@@ -35,7 +35,7 @@ Console.WriteLine(NaturalNumber(n, 1));
 M = 1; N = 15 -> 120
 M = 4; N = 8. -> 30
 */
-
+/*
 int Prompt(string message)
 {
   Console.Write(message);
@@ -53,4 +53,29 @@ int n = Prompt("Input N: ");
 int m = Prompt("Input M: ");
 
 Console.WriteLine(SumOfElements(n, m));
+*/
 
+/*
+Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+m = 2, n = 3 -> A(m,n) = 9
+m = 3, n = 2 -> A(m,n) = 29
+*/
+
+int Prompt(string message)
+{
+  Console.Write(message);
+  int result = Convert.ToInt32(Console.ReadLine());
+  return result;
+}
+
+int Akkerman(int m, int n)
+{
+  if (m == 0) return n + 1;
+  if (m > 0 && n == 0) return Akkerman(m - 1, 1);
+  else return Akkerman(m - 1, Akkerman(m, n - 1));
+}
+
+int m = Prompt("Input M: ");
+int n = Prompt("Input N: ");
+
+Console.WriteLine($"A({m},{n}) = {Akkerman(m, n)}");
